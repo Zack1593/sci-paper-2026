@@ -1,0 +1,6 @@
+checkpoints/
+pretrained/
+*.msgpack
+*.npz
+__pycache__/
+*.pyc

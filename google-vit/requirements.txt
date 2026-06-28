@@ -1,0 +1,11 @@
+# JAX / Flax Vision Transformer (CPU on Windows).
+# For GPU/TPU, install the matching jaxlib build per the JAX install guide.
+jax==0.4.38
+jaxlib==0.4.38
+flax==0.10.2
+optax==0.2.4
+ml_collections==1.0.0
+numpy>=1.26
+pillow>=10.0
+# CIFAR-10 is downloaded and parsed with the standard library only, so no
+# TensorFlow / tensorflow_datasets dependency is required.
