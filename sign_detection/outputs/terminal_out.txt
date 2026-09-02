@@ -1,0 +1,66 @@
+(.venv) (base) zack@zack-linux:~/Codes/sci-paper-2026/sign_detection$ python main.py --training --data_dir data --model_dir models --epochs 20 --batch_size 64 --learning_rate 0.001
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788334053.864381   86681 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1788334053.894560   86681 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788334054.620094   86681 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+----------- Starting Model Training -----------
+----------- Starting Model Training -----------
+Loading preprocessed data...
+Building model...
+/home/zack/Codes/sci-paper-2026/sign_detection/.venv/lib/python3.11/site-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
+W0000 00:00:1788334055.238623   86681 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+W0000 00:00:1788334055.244429   86681 gpu_device.cc:2459] TensorFlow was not built with CUDA kernel binaries compatible with compute capability 12.0a. CUDA kernels will be jit-compiled from PTX, which could take 30 minutes or longer.
+I0000 00:00:1788334055.321473   86681 gpu_device.cc:2043] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4656 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 5060, pci bus id: 0000:01:00.0, compute capability: 12.0a
+Training the model...
+Epoch 1/20
+I0000 00:00:1788334057.955872   86777 service.cc:153] XLA service 0x71103c0359c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1788334057.955890   86777 service.cc:161]   StreamExecutor [0]: NVIDIA GeForce RTX 5060, Compute Capability 12.0a (Driver: 13.0.0; Runtime: 12.9.0; Toolkit: 12.5.0; DNN: 9.25.1)
+I0000 00:00:1788334057.976072   86777 dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+I0000 00:00:1788334058.130324   86777 cuda_dnn.cc:461] Loaded cuDNN version 92501
+I0000 00:00:1788334058.177149   86777 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data_2582__.39
+I0000 00:00:1788334062.594194   86777 device_compiler.h:208] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+485/491 ━━━━━━━━━━━━━━━━━━━━ 0s 3ms/step - accuracy: 0.4424 - loss: 2.2617I0000 00:00:1788334064.107531   86777 dot_merger.cc:481] Merging Dots in computation: a_inference_one_step_on_data
+491/491 ━━━━━━━━━━━━━━━━━━━━ 14s 15ms/step - accuracy: 0.4451 - loss: 2.2485 - val_accuracy: 0.8085 - val_loss: 0.7211
+Epoch 2/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.7460 - loss: 0.8728 - val_accuracy: 0.9125 - val_loss: 0.3417
+Epoch 3/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.8140 - loss: 0.6270 - val_accuracy: 0.9271 - val_loss: 0.2518
+Epoch 4/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.8472 - loss: 0.5049 - val_accuracy: 0.9393 - val_loss: 0.2104
+Epoch 5/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.8632 - loss: 0.4505 - val_accuracy: 0.9448 - val_loss: 0.1718
+Epoch 6/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.8791 - loss: 0.4020 - val_accuracy: 0.9341 - val_loss: 0.2119
+Epoch 7/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.8888 - loss: 0.3743 - val_accuracy: 0.9625 - val_loss: 0.1306
+Epoch 8/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.8978 - loss: 0.3340 - val_accuracy: 0.9651 - val_loss: 0.1208
+Epoch 9/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 4ms/step - accuracy: 0.8976 - loss: 0.3398 - val_accuracy: 0.9649 - val_loss: 0.1148
+Epoch 10/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 4ms/step - accuracy: 0.9079 - loss: 0.2981 - val_accuracy: 0.9611 - val_loss: 0.1207
+Epoch 11/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.9132 - loss: 0.2876 - val_accuracy: 0.9718 - val_loss: 0.0912
+Epoch 12/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9180 - loss: 0.2674 - val_accuracy: 0.9719 - val_loss: 0.0930
+Epoch 13/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.9259 - loss: 0.2456 - val_accuracy: 0.9726 - val_loss: 0.0913
+Epoch 14/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9302 - loss: 0.2356 - val_accuracy: 0.9744 - val_loss: 0.0827
+Epoch 15/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9324 - loss: 0.2314 - val_accuracy: 0.9767 - val_loss: 0.0733
+Epoch 16/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9332 - loss: 0.2318 - val_accuracy: 0.9787 - val_loss: 0.0767
+Epoch 17/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.9347 - loss: 0.2187 - val_accuracy: 0.9725 - val_loss: 0.0909
+Epoch 18/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9378 - loss: 0.2145 - val_accuracy: 0.9727 - val_loss: 0.0892
+Epoch 19/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 2s 3ms/step - accuracy: 0.9326 - loss: 0.2329 - val_accuracy: 0.9791 - val_loss: 0.0723
+Epoch 20/20
+491/491 ━━━━━━━━━━━━━━━━━━━━ 1s 3ms/step - accuracy: 0.9409 - loss: 0.2057 - val_accuracy: 0.9804 - val_loss: 0.0693
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`.
+----------- Model Training Complete -----------

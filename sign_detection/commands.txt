@@ -1,0 +1,18 @@
+python -c "
+  import tensorflow as tf
+  print(tf.__version__)
+  print(tf.config.list_physical_devices('GPU'))
+  import time
+  t=time.time()
+  tf.constant(1.0) + tf.constant(1.0)  # trigger a device kernel launch
+  print('first op took', time.time()-t, 's')
+  "
+
+export LD_LIBRARY_PATH=$(python3 -c "
+import glob, os, nvidia
+base = os.path.dirname(nvidia.__file__)
+print(':'.join(glob.glob(f'{base}/*/lib')))
+")
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+python main.py --training --data_dir data --model_dir models --epochs 20 --batch_size 64 --learning_rate 0.001

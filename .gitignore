@@ -1,5 +1,5 @@
 /LC_CNN/lung_subset_small/
-/.venv/
+.venv/
 /.idea/
 /sign_detection/data/
 /car_plate/test_videos/
