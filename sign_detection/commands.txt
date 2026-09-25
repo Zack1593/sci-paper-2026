@@ -1,3 +1,4 @@
+// Check TensorFlow version and GPU
 python -c "
   import tensorflow as tf
   print(tf.__version__)
@@ -8,11 +9,23 @@ python -c "
   print('first op took', time.time()-t, 's')
   "
 
+// Print the path to the NVIDIA libraries
+import glob, os, nvidia
+base = os.path.dirname(nvidia.__file__)
+print(':'.join(glob.glob(f'{base}/*/lib')))
+
+// Check if TensorFlow is using the GPU
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+// Set the LD_LIBRARY_PATH environment variable
 export LD_LIBRARY_PATH=$(python3 -c "
 import glob, os, nvidia
 base = os.path.dirname(nvidia.__file__)
 print(':'.join(glob.glob(f'{base}/*/lib')))
 ")
-python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 
+// Install TensorFlow with CUDA support
+pip install "tensorflow[and-cuda]"
+
+// Run the training script
 python main.py --training --data_dir data --model_dir models --epochs 20 --batch_size 64 --learning_rate 0.001
